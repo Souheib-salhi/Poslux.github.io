@@ -1,0 +1,183 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>I'll help you transfer the content from `Page-2 (1).html` to `index.html`. The content appears to be a complete HTML page for a POS (Point of Sale) system website called POSLUX. Here's the content that should be in `index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POSLUX - Solutions de Point de Vente</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#0074cc',secondary:'#f8f9fa'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+#sidebar {
+position: fixed;
+top: 0;
+left: -300px;
+width: 300px;
+height: 100vh;
+background: white;
+z-index: 1000;
+transition: left 0.3s ease;
+box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+}
+#sidebar.active {
+left: 0;
+}
+#sidebarOverlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.5);
+z-index: 999;
+display: none;
+}
+#sidebarOverlay.active {
+display: block;
+}
+.submenu {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease;
+}
+.submenu.active {
+max-height: 500px;
+}
+.hero-section {
+background-image: linear-gradient(to right, rgba(0, 116, 204, 0.9), rgba(0, 116, 204, 0.7)), url('https://readdy.ai/api/search-image?query=Modern%20point%20of%20sale%20system%20with%20touchscreen%20display%20on%20elegant%20stand%2C%20clean%20blue%20background%20with%20soft%20lighting%2C%20professional%20retail%20environment%2C%20high-tech%20POS%20terminal&width=1200&height=500&seq=1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.product-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+input:focus {
+outline: none;
+}
+.carousel-indicator.active {
+background-color: #0074cc;
+width: 12px;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="bg-gray-800 text-white">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center">
+<a href="#" class="mr-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-home-line ri-lg"></i>
+</div>
+</a>
+<div class="relative w-64">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-search-line text-gray-400"></i>
+</div>
+</div>
+<input type="text" placeholder="poslux.net" class="w-full py-2 pl-10 pr-4 rounded-full bg-gray-700 border-none text-sm text-white placeholder-gray-400">
+</div>
+</div>
+<div class="flex items-center">
+<button class="w-8 h-8 flex items-center justify-center">
+<i class="ri-add-line ri-lg"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center ml-2">
+<i class="ri-shopping-bag-line ri-lg"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center ml-2">
+<i class="ri-more-vertical-line ri-lg"></i>
+</button>
+</div>
+</div>
+</header>
+<!-- Navigation -->
+<nav class="bg-white shadow-sm">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center">
+<button id="sidebarToggle" class="w-8 h-8 flex items-center justify-center mr-2">
+<i class="ri-menu-line ri-lg text-gray-700"></i>
+</button>
+<a href="#" class="font-['Pacifico'] text-primary text-2xl">POSLUX</a>
+</div>
+<div class="flex items-center">
+<button class="w-8 h-8 flex items-center justify-center">
+<i class="ri-search-line ri-lg text-gray-700"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center ml-2">
+<i class="ri-user-line ri-lg text-gray-700"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center ml-2 relative">
+<i class="ri-shopping-cart-line ri-lg text-gray-700"></i>
+<span class="absolute top-0 right-0 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">3</span>
+</button>
+</div>
+</div>
+</nav>
+<div id="sidebarOverlay"></div>
+<div id="sidebar" class="overflow-y-auto">
+<div class="p-4 border-b flex items-center justify-between">
+<span class="font-['Pacifico'] text-primary text-xl">POSLUX</span>
+<button id="sidebarClose" class="w-8 h-8 flex items-center justify-center">
+<i class="ri-close-line ri-lg text-gray-700"></i>
+</button>
+</div>
+<nav class="p-4">
+<ul class="space-y-2">
+<li>
+<a href="#" class="flex items-center py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">
+<div class="w-6 h-6 flex items-center justify-center mr-3">
+<i class="ri-home-line"></i>
+</div>
+<span>Accueil</span>
+</a>
+</li>
+<li>
+<button id="productsMenuBtn" class="w-full flex items-center justify-between py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-3">
+<i class="ri-shopping-bag-line"></i>
+</div>
+<span>Produits</span>
+</div>
+<i class="ri-arrow-down-s-line"></i>
+</button>
+<ul id="productsSubmenu" class="submenu pl-12 space-y-2">
+<li><a href="#" class="block py-2 text-gray-600 hover:text-primary">Terminaux de paiement</a></li>
+<li><a href="#" class="block py-2 text-gray-600 hover:text-primary">Vérificateurs de prix</a></li>
+<li><a href="#" class="block py-2 text-gray-600 hover:text-primary">Scanners</a></li>
+<li><a href="#" class="block py-2 text-gray-600 hover:text-primary">Accessoires</a></li>
+</ul>
+</li>
+<li>
+<a href="#" class="flex items-center py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">
+<div class="w-6 h-6 flex items-center justify-center mr-3">
+<i class="ri-customer-service-line"></i>
+</div>
+<span>Services</span>
+</a>
+</li>
+<li>
+<a href="#" class="flex items-center py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">
+<div class="w-6 h-6 flex items-center justify-center mr-3">
+<i class="ri-information-line"></i>
+</div>
+<span>À propos</span>
+</a>
+</li>
+<li>
+<a href="#" class="flex items-center py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">
+<div class="w-6 h-6 flex items-center justify-center mr-3">
+<i class="ri-mail
